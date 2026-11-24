@@ -28,6 +28,21 @@ func main() {
 	bookCount := len(books)
 	bookTitle := "A Court of Thorns and Roses"
 	isAvailable := true
+	bookavailability := map[string]bool{
+		"A Court of Thorns and Roses": true,
+		"Throne of Glass":             false,
+		"House of Earth and Blood":    true,
+	}
+	bookavailability["Throne of Glass"] = true
+	available, exists := bookavailability["Throne of Glass"]
+
+	if exists {
+		fmt.Println("Books exists in map:", available)
+	} else {
+		fmt.Println("Books not found in map:")
+	}
+	fmt.Println("Throne of Glass available:", bookavailability["Throne of Glass"])
+	action := "add"
 
 	fmt.Println("Library:", libraryName)
 	fmt.Println("Books:", bookCount)
@@ -40,10 +55,18 @@ func main() {
 	} else {
 		fmt.Println("Status: Borrowed")
 	}
-	showBooks(books)
-	books = addBooks(books, "The Stolen Heir")
-	showBooks(books)
-	searchBooks(books, "Throne of Glass")
+	switch action {
+	case "show":
+		showBooks(books)
+	case "search":
+		searchBooks(books, "Throne of Glass")
+	case "add":
+		books = addBooks(books, "The Stolen Heir")
+		showBooks(books)
+	default:
+		fmt.Println("Unknown action")
+	}
+
 }
 func showBooks(books []string) {
 	fmt.Println("Book catalog:")
