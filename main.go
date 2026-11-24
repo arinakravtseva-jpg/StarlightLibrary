@@ -1,6 +1,15 @@
 package main
 
 import "fmt"
+
 func main() {
-	fmt.Println("Welcome to Starlight Library!")
+	libraryName := "Starlight Library"
+	bookCount := 120
+	rating := 4.8
+	isOpen := true
+
+	fmt.Println("Library:", libraryName)
+	fmt.Println("Books:", bookCount)
+	fmt.Println("Rating:", rating)
+	fmt.Println("Is open:", isOpen)
 }
