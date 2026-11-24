@@ -8,8 +8,18 @@ func main() {
 	rating := 4.8
 	isOpen := true
 
+	bookTitle := "A Court of Thorns and Roses"
+	isAvailable := false
+
 	fmt.Println("Library:", libraryName)
 	fmt.Println("Books:", bookCount)
 	fmt.Println("Rating:", rating)
 	fmt.Println("Is open:", isOpen)
+
+	fmt.Println("Book:", bookTitle)
+	if isAvailable {
+		fmt.Println("Status: Available")
+	} else {
+		fmt.Println("Status: Borrowed")
+	}
 }
