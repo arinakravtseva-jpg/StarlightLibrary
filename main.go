@@ -4,7 +4,6 @@ import "fmt"
 
 func main() {
 	libraryName := "Starlight Library"
-	bookCount := 120
 	rating := 4.8
 	isOpen := true
 
@@ -26,7 +25,7 @@ func main() {
 		"House of Sky and Breath",
 		"House of Flame and Shadow",
 	}
-
+	bookCount := len(books)
 	bookTitle := "A Court of Thorns and Roses"
 	isAvailable := true
 
@@ -41,8 +40,28 @@ func main() {
 	} else {
 		fmt.Println("Status: Borrowed")
 	}
+	showBooks(books)
+	books = addBooks(books, "The Stolen Heir")
+	showBooks(books)
+	searchBooks(books, "Throne of Glass")
+}
+func showBooks(books []string) {
 	fmt.Println("Book catalog:")
 	for _, book := range books {
 		fmt.Println("-", book)
 	}
+}
+func searchBooks(books []string, title string) {
+	for _, book := range books {
+		if book == title {
+			fmt.Println("Book found:", book)
+			return
+		}
+	}
+	fmt.Println("Book not found")
+}
+func addBooks(books []string, title string) []string {
+	books = append(books, title)
+	fmt.Println("Book added:", title)
+	return books
 }
