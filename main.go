@@ -9,7 +9,7 @@ func main() {
 	isOpen := true
 
 	bookTitle := "A Court of Thorns and Roses"
-	isAvailable := false
+	isAvailable := true
 
 	fmt.Println("Library:", libraryName)
 	fmt.Println("Books:", bookCount)
